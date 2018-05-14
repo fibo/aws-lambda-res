@@ -1,6 +1,6 @@
 {
   "name": "aws-lambda-res",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "is a tiny helper to create a response object for AWS Lambda with Proxy Integration",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,9 @@
     "postversion": "git push origin v${npm_package_version}; npm publish; git push origin master",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "pre-commit": [ "lint" ],
+  "pre-commit": [
+    "lint"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fibo/aws-lambda-res.git"

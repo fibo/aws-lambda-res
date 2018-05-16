@@ -119,8 +119,8 @@ function response (statusCode) {
 The exported `response` function, requires `statusCode` argument and returns
 an helper function which accepts parameters:
 
-1. `body`: can be any data, even null
-2. `headers`, defaults to `{ 'Content-type': 'application/json' }`
+1. `body`: can be any data, even null.
+2. `headers`, defaults to `{ 'Content-type': 'application/json' }`.
 
 ```javascript
   /**
@@ -131,15 +131,15 @@ an helper function which accepts parameters:
    * @returns {Object} responseObj required by AWS Lambda Proxy integration
    */
 
-  function awsLambdaResponse (body, headers) {
-    body = body === null ? null : JSON.stringify(body)
-    headers = typeof headers === 'object' ? headers : { 'Content-Type': 'application/json' }
-
+  function awsLambdaResponse (
+    body,
+    headers = { 'Content-Type': 'application/json' }
+  ) {
     const responseObj = {
       isBase64Encoded: false,
       headers,
       statusCode,
-      body
+      body: body === null ? null : JSON.stringify(body)
     }
 
     return responseObj

@@ -2,7 +2,10 @@
   "name": "aws-lambda-res",
   "version": "0.1.1",
   "description": "is a tiny helper to create a response object for AWS Lambda with Proxy Integration",
-  "main": "index.js",
+  "main": "aws-lambda-res.js",
+  "engines" : {
+    "node" : ">=6"
+  },
   "scripts": {
     "lint": "standa",
     "markdown2code": "markdown2code -l javascript README.md > ${npm_package_main}",

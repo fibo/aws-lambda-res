@@ -15,15 +15,15 @@ function response (statusCode) {
    * @returns {Object} responseObj required by AWS Lambda Proxy integration
    */
 
-  function awsLambdaResponse (body, headers) {
-    body = body === null ? null : JSON.stringify(body)
-    headers = typeof headers === 'object' ? headers : { 'Content-Type': 'application/json' }
-
+  function awsLambdaResponse (
+    body,
+    headers = { 'Content-Type': 'application/json' }
+  ) {
     const responseObj = {
       isBase64Encoded: false,
       headers,
       statusCode,
-      body
+      body: body === null ? null : JSON.stringify(body)
     }
 
     return responseObj

@@ -16,7 +16,7 @@
 Suppose you have an *API Gateway* resource with a method configured with
 *Lambda Proxy integration*.
 
-![proxy flag](media/Use-Lambda-Proxy-integration.png)
+![proxy flag](http://g14n.info/aws-lambda-res/images/Use-Lambda-Proxy-integration.png)
 
 Suppose you have a dummy endpoint which returns JSON `{ "ok": true }`,
 then the following code will be a working implementation.
@@ -45,6 +45,51 @@ function handler (event, context, callback) {
 }
 
 exports.handler = handler
+```
+
+Let me write few tips I want to rememeber. When a method on API Gateway is
+configured with *Lambda Proxy integration* no additional mapping is needed.
+Everything you need will be available in `event` argument.
+
+To get a JSON payload, just parse it from body.
+
+
+```js
+function handler (event, context, callback) {
+  const { id, name } = JSON.parse(event.body)
+
+  // Follows your code...
+}
+```
+
+To extract form parameters, use `querystring` package.
+
+```js
+const querystring = require('querystring')
+
+function handler (event, context, callback) {
+  const { email, password } = querystring.parse(event.body)
+
+  // Follows your code...
+}
+```
+
+To get cookies, parse `event.cookie`.
+
+```js
+function handler (event, context, callback) {
+  const cookies = event.cookie.split(';')
+
+  let token
+
+  cookies.forEach(cookie => {
+    if (cookie.indexOf('token=') === 0) {
+      token = cookie.split('=')[1]
+    }
+  })
+
+  // Follows your code...
+}
 ```
 
 ## Annotated source

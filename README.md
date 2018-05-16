@@ -47,7 +47,7 @@ function handler (event, context, callback) {
 exports.handler = handler
 ```
 
-Let me write few tips I want to rememeber. When a method on API Gateway is
+Let me write few tips I want to remember. When a method on API Gateway is
 configured with *Lambda Proxy integration* no additional mapping is needed.
 Everything you need will be available in `event` argument.
 

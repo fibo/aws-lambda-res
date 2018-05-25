@@ -19,7 +19,7 @@ title: aws-lambda-res
 Suppose you have an *API Gateway* resource with a method configured with
 *Lambda Proxy integration*.
 
-![proxy flag](http://g14n.info/aws-lambda-res/images/Use-Lambda-Proxy-integration.png)
+![proxy flag](http://g14n.info/aws-lambda-res/images/Use-Lambda-Proxy-integration.png){:.responsive}
 
 Suppose you have a dummy endpoint which returns JSON `{ "ok": true }`,
 then the following code will be a working implementation.
@@ -83,13 +83,26 @@ To get cookies, parse `event.cookie`.
 function handler (event, context, callback) {
   const cookies = event.cookie.split(';')
 
-  let token
+  let session
 
   cookies.forEach(cookie => {
-    if (cookie.indexOf('token=') === 0) {
-      token = cookie.split('=')[1]
+    if (cookie.indexOf('session=') === 0) {
+      session = cookie.split('=')[1]
     }
   })
+
+  // Follows your code...
+}
+```
+
+To get headers, look into `event.headers`.
+For example, you can get a JWT header with the following snippet.
+
+```js
+function handler (event, context, callback) {
+  const auth = event.headers.Authorization
+
+  const token = (auth && auth.startsWith('BEARER ')) ? auth.substring(7) : null
 
   // Follows your code...
 }

@@ -108,6 +108,20 @@ function handler (event, context, callback) {
 }
 ```
 
+For route placeholders, for example suppose you want to handle an enpoint
+like `GET /user/{id}`, go to API Gateway and create first a resource with
+path `/user`. Then create a child resource with path `/{id}` and add a GET
+method.  The code of associated Lambda function will be something like the
+following.
+
+```js
+function handler (event, context, callback) {
+  const { id } = event.pathParameters
+
+  // Follows your code...
+}
+```
+
 ## Annotated source
 
 ```javascript

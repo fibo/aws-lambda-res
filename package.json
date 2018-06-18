@@ -1,6 +1,6 @@
 {
   "name": "aws-lambda-res",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "is a tiny helper to create a response object for AWS Lambda with Proxy Integration",
   "main": "aws-lambda-res.js",
   "engines": {

@@ -16,7 +16,7 @@
 Suppose you have an *API Gateway* resource with a method configured with
 *Lambda Proxy integration*.
 
-![proxy flag](http://g14n.info/aws-lambda-res/images/Use-Lambda-Proxy-integration.png){:.responsive}
+![proxy flag](http://g14n.info/aws-lambda-res/images/Use-Lambda-Proxy-integration.png)
 
 Suppose you have a dummy endpoint which returns JSON `{ "ok": true }`,
 then the following code will be a working implementation.

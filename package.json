@@ -37,6 +37,6 @@
   "devDependencies": {
     "markdown2code": "^0.3.0",
     "pre-commit": "^1.2.2",
-    "standa": "^2.0.2"
+    "standa": "^2.1.0"
   }
 }

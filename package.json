@@ -33,10 +33,5 @@
   "bugs": {
     "url": "https://github.com/fibo/aws-lambda-res/issues"
   },
-  "homepage": "http://g14n.info/aws-lambda-res",
-  "devDependencies": {
-    "markdown2code": "^1.0.2",
-    "pre-commit": "^1.2.2",
-    "standa": "^12.0.1"
-  }
+  "homepage": "http://g14n.info/aws-lambda-res"
 }

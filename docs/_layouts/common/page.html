@@ -7,6 +7,7 @@
 <head>
   {% include common/meta.html %}
   {% include common/favicon.html %}
+  {% include common/fontawesome.html %}
   {% include common/cookieconsent.html %}
   {% include common/style.html %}
 </head>
@@ -15,7 +16,8 @@
 
   <main>{{ content }}</main>
 
-  {% include common/footer.html %}
+  <load-html src="/common/footer.html"></load-html>
+
   {% include common/analytics.html %}
   {% include common/js-bundle.html %}
 </body>

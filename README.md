@@ -61,13 +61,23 @@ function handler (event, context, callback) {
 }
 ```
 
-To extract form parameters, use `querystring` package.
+To extract form parameters, or from any `POST` or `PUT` method, use `querystring` package.
 
 ```js
 const querystring = require('querystring')
 
 function handler (event, context, callback) {
   const { email, password } = querystring.parse(event.body)
+
+  // Follows your code...
+}
+```
+
+To access query string parameters in a `GET` do
+
+```js
+function handler (event, context, callback) {
+  const { param1, param2 } = event.queryStringParameters
 
   // Follows your code...
 }

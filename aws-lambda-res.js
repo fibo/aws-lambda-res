@@ -23,7 +23,12 @@ function response (statusCode) {
       isBase64Encoded: false,
       headers,
       statusCode,
-      body: body === null ? null : JSON.stringify(body)
+      // null => null
+      // 'hello' => 'hello'
+      // { foo: true } => '{"foo":true}'
+      body: (
+        body === null || typeof body === 'string'
+      ) ? body : JSON.stringify(body)
     }
 
     return responseObj
